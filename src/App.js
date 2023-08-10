@@ -17,7 +17,6 @@ const App = () => {
       // text: tweet,
     }).then((res)=>{
         setSentiment(res.data.label);
-        setScores(res.data.scores);
     }).catch((err)=>{
         console.error(err)
     });
