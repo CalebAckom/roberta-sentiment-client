@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import './App.css'
 
+const apiUrl = process.env.REACT_APP_API_URL
+
 const App = () => {
   const [tweet, setTweet] = useState("");
   const [sentiment, setSentiment] = useState("");
@@ -13,7 +15,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios.post(`http://localhost:8185/classify?text=${tweet}`, {
+    axios.post(`${apiUrl}/classify?text=${tweet}`, {
       // text: tweet,
     }).then((res)=>{
         setSentiment(res.data.label);
