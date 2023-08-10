@@ -1,6 +1,40 @@
-# Getting Started with Create React App
+# Frontend for Roberta Sentiment Analysis Model
+
+## Description
+This project is a React based client for the Roberta Sentiment Analysis Model from Hugging Face's Transformers library.
+
+## Requirements
+- [**Node**](https://nodejs.org/en/download)
+- [**Git**](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Set Up Locally
+**1. Clone the repository.**
+
+```sh
+git clone https://github.com/CalebAckom/roberta-sentiment-client.git
+```
+
+>Open the project in your IDE.
+
+**2. Navigate to the main branch.**
+
+```sh
+git checkout main
+```
+
+**6. Install packages.**
+
+```sh
+npm install
+```
+
+**7. Start the application.**
+
+```sh
+npm start
+```
 
 ## Available Scripts
 
@@ -29,15 +63,31 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Running inside Docker
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+For working in this Setup, Docker is highly recommended. For more instructions on the Setup, follow [Official Docker Docs](https://docs.docker.com).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Set Up
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**1. Build your container:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```sh
+docker build -t <image-name> .
+```
+
+**2. Run the container:**
+
+```sh
+docker run -p 3000:3000 <image-name>
+```
+
+>You can change the host port to your preference
+
+You can access the Service via localhost:
+
+```sh
+http://localhost:3000
+```
 
 ## Learn More
 
@@ -68,3 +118,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+**Happy Coding!**

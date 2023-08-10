@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import axios from "axios";
+import './App.css'
 
-function App() {
+const App = () => {
+  const [tweet, setTweet] = useState("");
+  const [sentiment, setSentiment] = useState("");
+
+  const handleChange = (e) => {
+    setTweet(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    axios.post(`http://localhost:8185/classify?text=${tweet}`, {
+      // text: tweet,
+    }).then((res)=>{
+        setSentiment(res.data.label);
+        setScores(res.data.scores);
+    }).catch((err)=>{
+        console.error(err)
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <h1>Sentiment Analysis</h1>
+        <input
+            type="text"
+            placeholder="Enter a tweet"
+            value={tweet}
+            onChange={handleChange}
+        />
+        <button onClick={handleSubmit}>Submit</button>
+        <p>Sentiment: {sentiment}</p>
+      </div>
   );
-}
+};
 
 export default App;
