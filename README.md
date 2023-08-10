@@ -6,10 +6,18 @@ This project is a React based client for the Roberta Sentiment Analysis Model fr
 ## Requirements
 - [**Node**](https://nodejs.org/en/download)
 - [**Git**](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [**Docker**](https://docs.docker.com/engine/install/) (Optional)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Architectural Design
+<img src="./image/architecture.png" alt="architectural-diagram" width="100%" height="100%">
+
+**[Find Diagram Here](https://drive.google.com/file/d/1psvm3VLOt1IxM9xMuQPgKXG4NRLnYAkg/view?usp=sharing)**
+
 ## Set Up Locally
+>Recommended to use a Bash terminal
+
 **1. Clone the repository.**
 
 ```sh
@@ -24,13 +32,18 @@ git clone https://github.com/CalebAckom/roberta-sentiment-client.git
 git checkout main
 ```
 
-**6. Install packages.**
+**3. Create .env file from .env.example, and make the necessary changes**
+```sh
+cp .env.example .env
+```
+
+**4. Install packages.**
 
 ```sh
 npm install
 ```
 
-**7. Start the application.**
+**5. Start the application.**
 
 ```sh
 npm start
