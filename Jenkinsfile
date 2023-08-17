@@ -80,7 +80,7 @@ pipeline {
                             --description "This is a revision for ${appName}-${gitSha}" \
                             --ignore-hidden-files \
                             --s3-location s3://${s3Bucket}/${s3FileName}.zip \
-                            --source ./deploy-scripts
+                            --source deploy-scripts
                         """
                     }
                 }
