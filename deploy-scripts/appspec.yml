@@ -2,14 +2,14 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu
+    destination: /home/ubuntu/deploy-scripts
 hooks:
   BeforeInstall:
-    - location: deploy-scripts/before-install.sh
+    - location: before-install.sh
       timeout: 1000
   AfterInstall:
-    - location: deploy-scripts/after-install.sh
+    - location: after-install.sh
       timeout: 1000
   ApplicationStart:
-    - location: deploy-scripts/boot.sh
+    - location: boot.sh
       timeout: 1000
