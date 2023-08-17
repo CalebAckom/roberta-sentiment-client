@@ -7,6 +7,7 @@ const apiUrl = process.env.REACT_APP_API_URL
 const App = () => {
     const [tweet, setTweet] = useState("");
     const [sentiment, setSentiment] = useState("");
+    const [score, setScore] = useState("");
 
     const handleChange = (e) => {
         setTweet(e.target.value);
@@ -18,6 +19,7 @@ const App = () => {
         try {
             const res = await axios.post(`${apiUrl}/classify?text=${tweet}`);
             setSentiment(res.data.label);
+            setScore(res.data.scores)
         } catch (err) {
             console.error(err);
         }
@@ -34,6 +36,7 @@ const App = () => {
             />
             <button onClick={handleSubmit}>Submit</button>
             <p className={`sentiment ${sentiment}`}>Sentiment: {sentiment}</p>
+            <p className={`score ${score}`}>Scores: {score}</p>
         </div>
     );
 };
