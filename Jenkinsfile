@@ -30,7 +30,8 @@ pipeline {
                 branch 'main'
             }
             steps {
-                script {
+                withCredentials([file(credentialsId: 'env', variable: 'frontendEnvFile')]) {
+                    sh 'cp $frontendEnvFile .env'
                     sh 'docker build -t calebackom/roberta-frontend .'
                 }
             }
