@@ -78,9 +78,9 @@ pipeline {
                             aws deploy push \
                             --application-name ${appName} \
                             --description "This is a revision for ${appName}-${gitSha}" \
-                            --no-ignore-hidden-files \
+                            --ignore-hidden-files \
                             --s3-location s3://${s3Bucket}/${s3FileName}.zip \
-                            --source .
+                            --source ./deploy-scripts
                         """
                     }
                 }
