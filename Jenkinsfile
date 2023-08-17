@@ -31,7 +31,7 @@ pipeline {
             }
             steps {
                 withCredentials([file(credentialsId: 'env', variable: 'frontendEnvFile')]) {
-                    sh 'sudo cp $frontendEnvFile .env'
+                    sh 'cp $frontendEnvFile .env'
                     sh 'docker build -t calebackom/roberta-frontend .'
                 }
             }
